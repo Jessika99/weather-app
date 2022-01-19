@@ -1,0 +1,40 @@
+h3 {
+    margin-left: 10px;
+    margin-bottom: 0px;
+}
+
+
+.header {
+    margin-top: 20px;
+    margin-bottom: 20px;
+}
+.header-img {
+    width: 70px;
+}
+.card-img-top {
+    height: 60px;
+    width: min-content;
+}
+.card {
+    /* padding: 10px */
+    text-align: center;
+}
+
+.card-body {
+    background-color: #F4F5F7;
+}
+
+.card-day {
+    font-size: 12px;
+    font-weight: bold;
+    margin-bottom: 5px;
+}
+
+.card-text {
+    font-size: 20px;
+    font-weight: bold;
+}
+.col {
+    width: min-content;
+    margin: 0%;
+}

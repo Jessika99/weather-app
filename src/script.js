@@ -1,3 +1,5 @@
+
+
 let currentTime = new Date();
 
 function formatTime(time) {

@@ -1,40 +1,51 @@
-h3 {
+#header-city {
     margin-left: 10px;
     margin-bottom: 0px;
-}
-
-
-.header {
+    font-weight: 400;
+    font-size: 20px;
+    position: relative;
+    top: 5px;
+  }
+  
+  #header-temperature {
+    font-weight: 500;
+    font-size: 45px;
+    position: relative;
+    top: 13px;
+  }
+  
+  .header {
     margin-top: 20px;
     margin-bottom: 20px;
-}
-.header-img {
+  }
+  .header-img {
     width: 70px;
-}
-.card-img-top {
+  }
+  .card-img-top {
     height: 60px;
     width: min-content;
-}
-.card {
+  }
+  .card {
     /* padding: 10px */
     text-align: center;
-}
-
-.card-body {
-    background-color: #F4F5F7;
-}
-
-.card-day {
+  }
+  
+  .card-body {
+    background-color: #f4f5f7;
+  }
+  
+  .card-day {
     font-size: 12px;
     font-weight: bold;
     margin-bottom: 5px;
-}
-
-.card-text {
+  }
+  
+  .card-text {
     font-size: 20px;
     font-weight: bold;
-}
-.col {
+  }
+  .col {
     width: min-content;
     margin: 0%;
-}
+  }
+  

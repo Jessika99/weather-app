@@ -86,10 +86,17 @@
   .units {
     position: relative;
     font-size: 20px;
-    color: #374151;
     font-weight: 400;
     line-height: 1;
     top: -34px;
+    text-decoration: none;
   }
 
-  
+  a {
+    color: #3C8999;
+  }
+
+  .temperature-container .active {
+    color: #374151;
+    cursor: default;
+  }

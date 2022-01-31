@@ -29,11 +29,13 @@ function showPosition() {
 
 function showSearchTemperature(response) {
   let headerTemperature = document.querySelector("#header-temperature");
-  let temperature = Math.round(response.data.main.temp);
+  let temperature = Math.round(celsiusTemperature);
   let iconElement = document.querySelector("#weather-icon");
   let descriptionElement = document.querySelector("#description");
   let humidityElement = document.querySelector("#humidity");
   let windElement = document.querySelector("#wind-speed");
+
+  celsiusTemperature = response.data.main.temp;
 
 
   iconElement.setAttribute("src",`http://openweathermap.org/img/wn/${response.data.weather[0].icon}@2x.png`);
@@ -56,18 +58,19 @@ function handleForm(event) {
 
 function convertToCelsius(event) {
   event.preventDefault();
-  let temperatureElements = document.getElementsByClassName("card-text");
-  for (const t of temperatureElements) {
-    t.innerHTML = "19°";
+  celsiusLink.classList.add("active");
+  fahrenheitLink.classList.remove("active");
+  let temperatureElement = document.querySelector("#header-temperature");
+  temperatureElement.innerHTML = Math.round(celsiusTemperature);
   }
-}
 
 function convertToFahrenheit(event) {
   event.preventDefault();
-  let temperatureElements = document.getElementsByClassName("card-text");
-  for (const t of temperatureElements) {
-    t.innerHTML = "66°";
-  }
+  celsiusLink.classList.remove("active");
+  fahrenheitLink.classList.add("active");
+  let fahrenheitTemperature = (celsiusTemperature * 9) / 5 + 32;
+  let temperatureElement = document.querySelector("#header-temperature");
+  temperatureElement.innerHTML = Math.round(fahrenheitTemperature);
 }
 
 function showYourTemperature(response) {
@@ -104,7 +107,7 @@ fahrenheitLink.addEventListener("click", convertToFahrenheit);
 let celsiusLink = document.querySelector("#celsius-link");
 celsiusLink.addEventListener("click", convertToCelsius);
 
+let celsiusTemperature = null;
+
 let yourLocationButton = document.querySelector("#current-location-button");
 yourLocationButton.addEventListener("click", displayTemperature);
-
-

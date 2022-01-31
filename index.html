@@ -12,106 +12,69 @@
 </head>
 <body>
     <div class="container">
-        <div class="header">
-            <div class="row">
-                <div class="col-5">
-                    <h1 id="current-time">7:30 AM</h1>
-                    <p id="current-date">12th Dec 2022</p>
-                    </div>
-                    <div class="col-7">
-                        <form>
-                            <div class="row">
-                              <div class="col-6">
-                                <input type="text" class="form-control" placeholder="Type your city" id="search-input">
-                              </div>
-                              <div class="col-2">
-                                    <input type="submit" value="Search" class="btn btn-secondary">                              
-
-                                </div>
-                              <div class="col-4">
-                                    <button type="button" class="btn btn-outline-secondary" id="current-location-button"> Your location </button>
-                                </div>
-                            </div>                            
-                        </form>
-                    </div>
-                    <div>
-                        <img src="images/rainy-snowy-day.png" class="header-img">
-                        <span id="header-temperature"> 19 </span>
-                        <span id="header-city">Prague, Czechia
-                        </span>
-                        <br/>
-                        <div>
-                                <span class="units">
-                                        <a href="#" id="celsius-link">°C</a> |
-                                        <a href="#" id="fahrenheit-link">°F</a>
-                                      </span> 
+        <div class="weather-wrapper">
+            <div class="weather-form">
+                <form>
+                    <div class="row">
+                      <div class="col-6">
+                        <input type="text" class="form-control" placeholder="Type your city" id="search-input">
+                      </div>
+                      <div class="col-2">
+                            <input type="submit" value="Search" class="btn btn-secondary">                              
                         </div>
-                </div>
+                      <div class="col-4">
+                            <button type="button" class="btn btn-outline-secondary" id="current-location-button"> Your location </button>
+                        </div>
+                    </div>                            
+                </form>
             </div>
+                <div class="weather-info">
+                    <div class="row">
+                        <div class="col-6">
+                            <h1 id="header-city">
+                                New York
+                            </h1>
+                            <ul>
+                                <li>
+                                    <span id="current-time"> Monday, 07:37
+                                    </span>
+                                    <span>
+                                        , overcast clouds
+                                    </span>
+                                </li>
+                                <li>
+                                    Humidity: 
+                                    <strong>
+                                        66%
+                                    </strong>
+                                    <strong>
+                                        , Wind:
+                                    </strong>
+                                    <strong>
+                                        0 km/h
+                                    </strong>
+                                </li>
+                            </ul>
+                        </div>
+                        <div class="col-6 temperature-container d-flex justify-content-end">
+                            <img src="images/rainy-snowy-day.png" class="header-img">
+                            <div>
+                                <span id="header-temperature">
+                                    19
+                                </span>
+                                <span class="units">
+                                    <a href="#" id="celsius-link">°C</a> |
+                                    <a href="#" id="fahrenheit-link">°F</a>
+                                </span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div> 
         </div>
-           <div class="row forecast">
-                <div class="col-2 Monday">
-                     <div class="card">
-                        <div class="card-body">
-                            <img src="images/rainy-snowy-day.png" class="card-img-top" alt="...">
-                            <p class="card-day">Mon</p>
-                            <p class="card-text">-2°</p>
-                    </div>
-                </div>
-            </div>
-            
-            <div class="col-2 Tuesday">
-                <div class="card">
-                    <div class="card-body">
-                        <img src="images/storm.png" class="card-img-top" alt="...">
-                        <p class="card-day">Tue</p>
-                        <p class="card-text">-2°</p>
-                    </div>
-                </div>
-            </div>
-                
-            <div class="col-2 Wednesday">
-                <div class="card">
-                    <div class="card-body">
-                        <img src="images/sun1.png" class="card-img-top" alt="...">
-                        <p class="card-day">Wed</p>
-                        <p class="card-text">-2°</p>
-                    </div>
-                </div>
-            </div>
-               
-            <div class="col-2 Thursday">
-                <div class="card">
-                    <div class="card-body">
-                        <img src="images/windy.png" class="card-img-top" alt="...">
-                        <p class="card-day">Thu</p>
-                        <p class="card-text">-2°</p>
-                </div>
-                </div>
-            </div>
-               
-            <div class="col-2 Friday">
-                <div class="card">
-                    <div class="card-body">
-                        <img src="images/snow.png" class="card-img-top" alt="...">
-                        <p class="card-day">Fri</p>
-                        <p class="card-text">-2°</p>
-                    </div>
-                  </div>
-            </div>
-               
-            <div class="col-2 Saturday">
-                <div class="card">
-                        <div class="card-body">
-                        <img src="images/rain.png" class="card-img-top" alt="...">
-                        <p class="card-day">Sat</p>
-                      <p class="card-text">-2°</p>
-                    </div>
-                </div>
-            </div>
-    </div>
-    <a href="https://github.com/Jessika99/weather-app">Open Source Code by Jessika Bohr</a>
 
+            <a href="https://github.com/Jessika99/weather-app">Open Source Code by Jessika Bohr</a>
+    </div>
     <script src="src/script.js"></script>
 </body>
 </html>

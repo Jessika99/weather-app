@@ -16,7 +16,7 @@ function formatTime(time) {
   let day = days[time.getDay()];
   let hour = time.getHours();
   let minute = time.getMinutes();
-  let formattedTime = `${day}, ${hour}:${minute}`;
+  let formattedTime = `${day} ${hour}:${minute}`;
 
   return formattedTime;
 }
@@ -31,11 +31,17 @@ function showSearchTemperature(response) {
   let headerTemperature = document.querySelector("#header-temperature");
   let temperature = Math.round(response.data.main.temp);
   let iconElement = document.querySelector("#weather-icon");
+  let descriptionElement = document.querySelector("#description");
+  let humidityElement = document.querySelector("#humidity");
+  let windElement = document.querySelector("#wind-speed");
+
 
   iconElement.setAttribute("src",`http://openweathermap.org/img/wn/${response.data.weather[0].icon}@2x.png`);
-  icon.Element.setAttribute("alt", `${response.data.weather[0].description}`);
+  iconElement.setAttribute("alt", `${response.data.weather[0].description}`);
   headerTemperature.innerHTML = `${temperature}°`;
-  
+  descriptionElement.innerHTML = response.data.weather[0].description;
+  humidityElement.innerHTML = Math.round(response.data.main.humidity);
+  windElement.innerHTML = response.data.wind.speed;
 }
 
 function handleForm(event) {

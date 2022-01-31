@@ -15,6 +15,10 @@
     color: #161E2E;
   }
   
+  strong {
+    color: #3C8999;
+  }
+
   .weather-form {
     margin-top: 40px;
     padding-bottom: 30px; 
@@ -87,3 +91,5 @@
     line-height: 1;
     top: -34px;
   }
+
+  

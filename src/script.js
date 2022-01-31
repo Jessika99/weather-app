@@ -21,29 +21,6 @@ function formatTime(time) {
   return formattedTime;
 }
 
-function formatDate(date) {
-  let months = [
-    "Jan",
-    "Feb",
-    "Mar",
-    "Apr",
-    "May",
-    "Jun",
-    "Jul",
-    "Sep",
-    "Oct",
-    "Nov",
-    "Dec"
-  ];
-
-  let month = months[date.getMonth()];
-  let currentDate = date.getDate();
-  let year = date.getFullYear();
-  let formattedDate = `${currentDate} ${month}, ${year}`;
-
-  return formattedDate;
-}
-
 function showPosition() {
   let headerCity = document.querySelector("#header-city");
   let searchInput = document.querySelector("#search-input");
@@ -53,7 +30,12 @@ function showPosition() {
 function showSearchTemperature(response) {
   let headerTemperature = document.querySelector("#header-temperature");
   let temperature = Math.round(response.data.main.temp);
+  let iconElement = document.querySelector("#weather-icon");
+
+  iconElement.setAttribute("src",`http://openweathermap.org/img/wn/${response.data.weather[0].icon}@2x.png`);
+  icon.Element.setAttribute("alt", `${response.data.weather[0].description}`);
   headerTemperature.innerHTML = `${temperature}°`;
+  
 }
 
 function handleForm(event) {
@@ -106,9 +88,6 @@ function displayTemperature(event) {
 
 let time = document.querySelector("#current-time");
 time.innerHTML = formatTime(currentTime);
-
-let headerDate = document.querySelector("#current-date");
-headerDate.innerHTML = formatDate(currentTime);
 
 let form = document.querySelector("form");
 form.addEventListener("submit", handleForm);

@@ -100,3 +100,23 @@
     color: #374151;
     cursor: default;
   }
+
+  .weather-forecast {
+    margin-top: 20px;
+    text-align: center ;
+  }
+
+  .forecast-date {
+    font-size: 16px;
+    opacity: 0.5;
+  }
+
+  .forecast-temperature {
+    font-size: 13px;
+  }
+
+  .forecast-temp-min {
+    opacity: 0.5;
+  }
+
+ 

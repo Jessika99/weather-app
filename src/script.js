@@ -44,6 +44,33 @@ function formatDay(time) {
   return days(day);
 }
 
+function displayForecast() {
+  let forecastElement = document.querySelector("#forecast");
+
+  let forecastHTML = `<div class="row">`;
+  let days = ["Mon", "Tue", "Wed", "Thu", "Fri", "Sat", "Sun"];
+  days.forEach(function (day) {
+    forecastHTML =  forecastHTML + `
+  <div class="col-2">
+      <div class="forecast-date">${day}</div>
+     <img src="https://duckduckgo.com/assets/weather/icons/clear-night.svg" alt=""> 
+     <div class="forecast-temperature">
+     <span class="forecast-temp-max">
+         18
+      </span>
+      <span class="forecast-temp-min">
+      12
+  </span>
+      </div>
+  </div>
+`;
+  });
+  
+  forecastHTML = forecastHTML + `</div>`;
+  forecastElement.innerHTML = forecastHTML;
+  
+}
+
 function showPosition() {
   let headerCity = document.querySelector("#header-city");
   let searchInput = document.querySelector("#search-input");
@@ -61,6 +88,8 @@ function showSearchTemperature(response) {
 
 
   celsiusTemperature = response.data.main.temp;
+
+  
 
   headerTemperature.innerHTML = Math.round(celsiusTemperature);
   cityElement.innerHTML = response.data.name;
@@ -143,3 +172,4 @@ let yourLocationButton = document.querySelector("#current-location-button");
 yourLocationButton.addEventListener("click", displayTemperature);
 
 search("New York");
+displayForecast();

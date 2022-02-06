@@ -28,42 +28,44 @@ function formatTime(time) {
 }
 
 function formatDay(time) {
-  let date = new Date(time *1000);
+  let date = new Date(time * 1000);
   let day = date.getDay();
   let days = [
-    "Sunday",
-    "Monday",
-    "Tuesday",
-    "Wednesday",
-    "Thursday",
-    "Friday",
-    "Saturday",
-    
+    "Sun",
+    "Mon",
+    "Tue",
+    "Wed",
+    "Thu",
+    "Fri",
+    "Sat",
   ];
-
-  return days(day);
+  return days[day];
 }
 
-function displayForecast() {
+
+
+function displayForecast(response) {
   let forecastElement = document.querySelector("#forecast");
+  let forecast = response.data.daily;
 
   let forecastHTML = `<div class="row">`;
-  let days = ["Mon", "Tue", "Wed", "Thu", "Fri", "Sat", "Sun"];
-  days.forEach(function (day) {
+  forecast.forEach(function (forecastDay, index) {
+    if (index < 6) {
+
     forecastHTML =  forecastHTML + `
   <div class="col-2">
-      <div class="forecast-date">${day}</div>
-     <img src="https://duckduckgo.com/assets/weather/icons/clear-night.svg" alt=""> 
+      <div class="forecast-date">${formatDay(forecastDay.dt)}</div>
+     <img src="http://openweathermap.org/img/wn/${forecastDay.weather[0].icon}@2x.png" alt="" width=42> 
      <div class="forecast-temperature">
      <span class="forecast-temp-max">
-         18
+      ${Math.round(forecastDay.temp.max)}°
       </span>
       <span class="forecast-temp-min">
-      12
+      ${Math.round(forecastDay.temp.min)}°
   </span>
       </div>
   </div>
-`;
+`;}
   });
 
   forecastHTML = forecastHTML + `</div>`;

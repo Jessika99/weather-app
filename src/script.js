@@ -1,4 +1,5 @@
 let currentTime = new Date();
+let isInCelsius = true;
 
 function formatTime(time) {
   let date = new Date(time);
@@ -47,6 +48,9 @@ function formatDay(time) {
 function displayForecast(response) {
   let forecastElement = document.querySelector("#forecast");
   let forecast = response.data.daily;
+  isInCelsius = true;
+  celsiusLink.classList.add("active");
+  fahrenheitLink.classList.remove("active");
 
   let forecastHTML = `<div class="row">`;
   forecast.forEach(function (forecastDay, index) {
@@ -132,7 +136,34 @@ function convertToCelsius(event) {
   fahrenheitLink.classList.remove("active");
   let temperatureElement = document.querySelector("#header-temperature");
   temperatureElement.innerHTML = Math.round(celsiusTemperature);
+
+  let temperatureMaxElements = document.getElementsByClassName("forecast-temp-max");
+  let temperatureMinElements = document.getElementsByClassName("forecast-temp-min");
+
+  for (const maxTemp of temperatureMaxElements) {
+    if (!isInCelsius) {
+      maxTemp.innerHTML = convertFahrenheitToCelsius(parseInt(maxTemp.innerHTML), 10) + "°";
+    }
   }
+
+  for (const minTemp of temperatureMinElements) {
+    if (!isInCelsius) {
+      minTemp.innerHTML = convertFahrenheitToCelsius(parseInt(minTemp.innerHTML), 10) + "°";
+    }
+  }
+
+  isInCelsius = true;
+}
+
+function convertCelsiusToFahrenheit(temp) {
+  return Math.round((temp * 9) / 5 + 32);
+}
+
+function convertFahrenheitToCelsius(temp) {
+  
+  return Math.round((temp - 32) * 5 / 9);
+}
+
 
 function convertToFahrenheit(event) {
   event.preventDefault();
@@ -140,8 +171,25 @@ function convertToFahrenheit(event) {
   
   celsiusLink.classList.remove("active");
   fahrenheitLink.classList.add("active");
-  let fahrenheitTemperature = (celsiusTemperature * 9) / 5 + 32;
+  let fahrenheitTemperature = convertCelsiusToFahrenheit(celsiusTemperature);
   temperatureElement.innerHTML = Math.round(fahrenheitTemperature);
+
+  let temperatureMaxElements = document.getElementsByClassName("forecast-temp-max");
+  let temperatureMinElements = document.getElementsByClassName("forecast-temp-min");
+
+  for (const maxTemp of temperatureMaxElements) {
+    if (isInCelsius) {
+      maxTemp.innerHTML = convertCelsiusToFahrenheit(parseInt(maxTemp.innerHTML), 10) + "°";
+    }
+  }
+
+  for (const minTemp of temperatureMinElements) {
+    if (isInCelsius) {
+      minTemp.innerHTML = convertCelsiusToFahrenheit(parseInt(minTemp.innerHTML), 10) + "°";
+    }
+  }
+
+  isInCelsius = false;
 }
 
 function showYourTemperature(response) {
@@ -151,6 +199,7 @@ function showYourTemperature(response) {
   currentCity.innerHTML = response.data.name;
 
   headerTemperature.innerHTML = `${temperature}`;
+  getForecast(response.data.coord);
 }
 
 function handleYourPosition(position) {
@@ -159,6 +208,7 @@ function handleYourPosition(position) {
   let apiKey = "42182c51698ff768edc6fa80ece8d4d3";
   let apiUrl = `https://api.openweathermap.org/data/2.5/weather?lat=${latitude}&lon=${longitude}&appid=${apiKey}&units=metric`;
   axios.get(apiUrl).then(showYourTemperature);
+
 }
 
 function displayTemperature(event) {

@@ -28,7 +28,7 @@
   .header-img {
     width: auto 52px;
     height: auto 52px;
-    margin: 1px 0;
+    margin: -5px 0;
   }
   
   .col {
@@ -88,12 +88,16 @@
     font-size: 20px;
     font-weight: 400;
     line-height: 1;
-    top: -34px;
-    text-decoration: none;
+    top: -42px;
   }
 
   a {
     color: #3C8999;
+    text-decoration: none;
+  }
+
+  a:hover {
+    text-decoration: underline;
   }
 
   .temperature-container .active {

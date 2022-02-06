@@ -1,5 +1,19 @@
+footer {
+  font-size: 14px;
+  margin-top: 40px;
+  line-height: 18px;
+  text-align: center;
+  color: #6B7280;
+}
+
+strong {
+  color: #3C8999;
+  font-weight: 600;
+}
+
+
 #header-city {
-    margin: 20px 0 10px;
+    margin: 30px 0 10px;
     font-weight: 700;
     font-size: 38px;
     line-height: 48px;
@@ -13,10 +27,6 @@
     line-height: 1;
     margin-left: 10px;
     color: #161E2E;
-  }
-  
-  strong {
-    color: #3C8999;
   }
 
   .weather-form {
@@ -65,11 +75,14 @@
     color: #6B7280;
   }
 
-
   .btn {
     background: #8DE0F1;
     color: #374151;
     border: none;
+    font-weight: 600;
+    font-size: 16px;
+    padding: 15px 0;
+    height: 50px;
   }
 
   .btn:hover {
@@ -81,6 +94,12 @@
     background: #F4F5F7;
     color: #6B7280;
     border: none;
+    padding: 15px 20px;
+    border-radius: 6px;
+    font-size: 16px;
+    height: 50px;
+    line-height: 20px;
+
   }
 
   .units {
@@ -107,20 +126,22 @@
 
   .weather-forecast {
     margin-top: 20px;
-    text-align: center ;
+    text-align: center;
+    margin: 40px 0;
+    border-bottom: 1px solid #f9f7fe;
+    padding-bottom: 50px;
   }
 
   .forecast-date {
     font-size: 16px;
-    opacity: 0.5;
+    color: #161E2E;
   }
 
   .forecast-temperature {
     font-size: 13px;
+    color: #161E2E;
   }
 
   .forecast-temp-min {
     opacity: 0.5;
   }
-
- 

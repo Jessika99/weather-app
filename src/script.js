@@ -65,10 +65,18 @@ function displayForecast() {
   </div>
 `;
   });
-  
+
   forecastHTML = forecastHTML + `</div>`;
   forecastElement.innerHTML = forecastHTML;
   
+}
+
+function getForecast(coordinates) {
+
+  let apiKey = "42182c51698ff768edc6fa80ece8d4d3";
+  let apiUrl = `https://api.openweathermap.org/data/2.5/onecall?lat=${coordinates.lat}&lon=${coordinates.lon}&appid=${apiKey}&units=metric`;
+
+  axios.get(apiUrl).then(displayForecast);
 }
 
 function showPosition() {
@@ -99,6 +107,8 @@ function showSearchTemperature(response) {
   humidityElement.innerHTML = Math.round(response.data.main.humidity);
   windElement.innerHTML = response.data.wind.speed;
   dateElement.innerHTML = formatTime(response.data.dt * 1000);
+
+  getForecast(response.data.coord);
   
 }
 
@@ -172,4 +182,3 @@ let yourLocationButton = document.querySelector("#current-location-button");
 yourLocationButton.addEventListener("click", displayTemperature);
 
 search("New York");
-displayForecast();
